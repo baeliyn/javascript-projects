@@ -34,10 +34,22 @@ getUser(123).then((user) => {
     });
   });
 });
-*/
+
 
 getUser(123)
   .then((user) => getCourses(user))
   .then((courses) => getComments(courses))
   .then((comment) => console.log(comment))
   .catch((error) => console.log(error));
+*/
+
+async function showComments() {
+  try {
+    const user = await getUser(123);
+    const courses = await getCourses(user.name);
+    const comment = await getComments(courses[0]);
+    console.log(comment);
+  } catch (error) {
+    console.log(error);
+  }
+}
