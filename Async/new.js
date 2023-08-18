@@ -53,3 +53,5 @@ async function showComments() {
     console.log(error);
   }
 }
+
+showComments()
